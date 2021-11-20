@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comunicacionserial", "Comunicacionserial\Comunicacionserial.csproj", "{AFA81B96-E620-48E7-8404-5C0AA8655B68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA81B96-E620-48E7-8404-5C0AA8655B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA81B96-E620-48E7-8404-5C0AA8655B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA81B96-E620-48E7-8404-5C0AA8655B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA81B96-E620-48E7-8404-5C0AA8655B68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89F360D5-817F-49F3-A80D-1704EB6CD1FC}
+	EndGlobalSection
+EndGlobal
