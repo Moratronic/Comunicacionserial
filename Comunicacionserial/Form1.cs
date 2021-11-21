@@ -12,7 +12,6 @@ using System.Numerics; //Para numeros complejos
 using MathNet.Numerics.IntegralTransforms; //Para FFT
 using System.Windows.Forms.DataVisualization.Charting; //Para charts
 using MathNet.Numerics; //Para generar la señal de prueba
-//using System.Linq;//Para obtener maximo valorde array
 
 
 namespace Comunicacionserial
@@ -253,6 +252,7 @@ namespace Comunicacionserial
         private void button4_Click(object sender, EventArgs e) //Limpiar grafico
         {
             chart1.Series[0].Points.Clear();
+            chart2.Series[0].Points.Clear();
             i = false;
             inicio = false;
         }
@@ -281,20 +281,23 @@ namespace Comunicacionserial
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            temblor = true;
-        }
-
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            temblor = false;
-            label7.Text = ("-");
+            if (comboBox2.Text == "Prueba TAP")
+            {
+                temblor = false;
+                label7.Text = ("-");
+            }
+
+            if (comboBox2.Text == "Prueba TEP")
+            {
+                temblor = true;
+            }
         }
     }
 }
