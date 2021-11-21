@@ -12,8 +12,8 @@ using System.Numerics; //Para numeros complejos
 using MathNet.Numerics.IntegralTransforms; //Para FFT
 using System.Windows.Forms.DataVisualization.Charting; //Para charts
 using MathNet.Numerics; //Para generar la señal de prueba
-using System.Linq;//Para obtener maximo valorde array
-//Solo comentario
+//using System.Linq;//Para obtener maximo valorde array
+
 
 namespace Comunicacionserial
 {
