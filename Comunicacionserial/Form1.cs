@@ -13,7 +13,7 @@ using MathNet.Numerics.IntegralTransforms; //Para FFT
 using System.Windows.Forms.DataVisualization.Charting; //Para charts
 using MathNet.Numerics; //Para generar la señal de prueba
 using System.Linq;//Para obtener maximo valorde array
-
+//Solo comentario
 
 namespace Comunicacionserial
 {
