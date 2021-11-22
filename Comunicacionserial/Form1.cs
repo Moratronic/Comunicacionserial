@@ -29,7 +29,7 @@ namespace Comunicacionserial
         Complex[] x = new Complex[N];
         Complex[] x0 = new Complex[m+1];
         //Señal de prueba nadamas
-        static readonly double[] entrada = Generate.Sinusoidal(m, 25, 6, 2);
+        //static readonly double[] entrada = Generate.Sinusoidal(m, 25, 6, 2);
         double[] magX = new double[N /2];
 
         public Form1()
@@ -53,7 +53,7 @@ namespace Comunicacionserial
             chart2.ChartAreas[0].AxisY.Title = "dB";
             chart2.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 13.0f);
             //Grafico la señal  que cree
-            for (int n = 0; n < m; n++)
+           /* for (int n = 0; n < m; n++)
             {
                 double tiempo = n *1.0/ Fs;
                 chart1.Series[0].Points.AddXY(tiempo, entrada[n]);
@@ -65,7 +65,7 @@ namespace Comunicacionserial
                 x[i] = new Complex(entrada[i], 0);
             }
 
-            PlotFFT();
+            PlotFFT();*/
         }
 
         public void PlotFFT()
@@ -163,13 +163,17 @@ namespace Comunicacionserial
 
             if (inicio == true)
             {
+                double numero;
+                bool input = double.TryParse(serialPort1.ReadLine(), out numero);
+                if (!input)
+                 return;
+
                 if (i == false)
                 {
                     t = 0;
                     i = true;
                 }
-                var dato = serialPort1.ReadLine();
-                double numero = double.Parse(dato);
+
                 double tap = Math.Round(((numero * 4.0) / 65535), 2);
                 chart1.Series[0].Points.AddXY(t, tap);
                 label4.Text = tap.ToString();
@@ -190,8 +194,8 @@ namespace Comunicacionserial
                         x0[i] = x[i];
                         x0[i + 1] = 0;
                     }
+                    g = 1;
                 }
-                g = 1;
             }
         } 
         
