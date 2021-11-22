@@ -292,18 +292,9 @@ namespace Comunicacionserial
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox2.Text == "Prueba TAP")
-            {
-                temblor = false;
-                label7.Text = ("-");
-            }
-
-            if (comboBox2.Text == "Prueba TEP")
-            {
-                temblor = true;
-            }
-        }//Seleccion de tipo de prueba
+        
     }
 }
+
+
+//Esta es la rama creada por Jesús Reyes Gómez
