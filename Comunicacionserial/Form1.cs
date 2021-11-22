@@ -12,7 +12,7 @@ using System.Numerics; //Para numeros complejos
 using MathNet.Numerics.IntegralTransforms; //Para FFT
 using System.Windows.Forms.DataVisualization.Charting; //Para charts
 using MathNet.Numerics; //Para generar la señal de prueba
-
+//Comentario de prueba
 
 namespace Comunicacionserial
 {
