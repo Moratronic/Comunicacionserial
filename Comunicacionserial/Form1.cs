@@ -123,14 +123,14 @@ namespace Comunicacionserial
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Start();
-        }
+        }//Inicializacion del timer1
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //Seleccion de puerto COM
         {
             serialPort1.Close();
             serialPort1.Dispose();
@@ -157,7 +157,7 @@ namespace Comunicacionserial
 
         Boolean i = false;
         int c = 0;
-        public void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        public void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)//Recepcion de datos
         {
             //inicia el timer1 para que sea cero cuando se recibe el primer dato
 
@@ -169,8 +169,8 @@ namespace Comunicacionserial
                     i = true;
                 }
                 var dato = serialPort1.ReadLine();
-                double numero = Convert.ToDouble(dato);
-                double tap = Math.Round(((numero * 4) / 65535), 2);
+                double numero = double.Parse(dato);
+                double tap = Math.Round(((numero * 4.0) / 65535), 2);
                 chart1.Series[0].Points.AddXY(t, tap);
                 label4.Text = tap.ToString();
 
@@ -191,7 +191,7 @@ namespace Comunicacionserial
                         x0[i + 1] = 0;
                     }
                 }
-               // PlotFFT();
+                g = 1;
             }
         } 
         
@@ -202,14 +202,16 @@ namespace Comunicacionserial
         }
 
         double t = 0;
+        int g = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             t = t+0.04;
-            if (inicio == true && temblor==true)
+            if (inicio == true && temblor==true && g==1)
             {
-                PlotFFT();
+               PlotFFT();
+                g = 0;
             }
-            if (t==20.0)
+            if (t>=20.0)
             {
                 inicio = false;
                 serialPort1.Write("S");
@@ -298,6 +300,6 @@ namespace Comunicacionserial
             {
                 temblor = true;
             }
-        }
+        }//Seleccion de tipo de prueba
     }
 }

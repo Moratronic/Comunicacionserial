@@ -70,8 +70,8 @@ namespace Comunicacionserial
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(126, 13);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.comboBox1.Location = new System.Drawing.Point(177, 19);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(120, 24);
             this.comboBox1.TabIndex = 0;
@@ -80,12 +80,12 @@ namespace Comunicacionserial
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(485, 19);
+            this.label1.Location = new System.Drawing.Point(18, 298);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 16);
+            this.label1.Size = new System.Drawing.Size(139, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seleccione prueba";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -93,36 +93,35 @@ namespace Comunicacionserial
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(1, 15);
+            this.label2.Location = new System.Drawing.Point(14, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 16);
+            this.label2.Size = new System.Drawing.Size(134, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Seleccione puerto";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(265, 15);
+            this.label3.Location = new System.Drawing.Point(61, 81);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(12, 16);
+            this.label3.Size = new System.Drawing.Size(0, 16);
             this.label3.TabIndex = 3;
-            this.label3.Text = "-";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(70, 474);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(751, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 39);
+            this.label4.Size = new System.Drawing.Size(23, 31);
             this.label4.TabIndex = 4;
             this.label4.Text = "-";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -131,22 +130,22 @@ namespace Comunicacionserial
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(262, 474);
+            this.label5.Location = new System.Drawing.Point(481, 6);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 33);
+            this.label5.Size = new System.Drawing.Size(188, 33);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Variación";
+            this.label5.Text = "Variación (G)";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button1.ForeColor = System.Drawing.Color.Yellow;
-            this.button1.Location = new System.Drawing.Point(1172, 498);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button1.Location = new System.Drawing.Point(13, 624);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 30);
+            this.button1.Size = new System.Drawing.Size(124, 48);
             this.button1.TabIndex = 6;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
@@ -158,8 +157,8 @@ namespace Comunicacionserial
             this.chart1.ChartAreas.Add(chartArea7);
             legend7.Name = "Legend1";
             this.chart1.Legends.Add(legend7);
-            this.chart1.Location = new System.Drawing.Point(3, 131);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.chart1.Location = new System.Drawing.Point(403, 56);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chart1.Name = "chart1";
             series7.BorderColor = System.Drawing.Color.Red;
             series7.ChartArea = "ChartArea1";
@@ -173,7 +172,7 @@ namespace Comunicacionserial
             series7.Name = "Oscilacion";
             series7.YValuesPerPoint = 2;
             this.chart1.Series.Add(series7);
-            this.chart1.Size = new System.Drawing.Size(604, 320);
+            this.chart1.Size = new System.Drawing.Size(750, 282);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -185,11 +184,11 @@ namespace Comunicacionserial
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button2.Location = new System.Drawing.Point(391, 105);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button2.BackColor = System.Drawing.Color.Lime;
+            this.button2.Location = new System.Drawing.Point(14, 404);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 22);
+            this.button2.Size = new System.Drawing.Size(80, 47);
             this.button2.TabIndex = 8;
             this.button2.Text = "Iniciar prueba";
             this.button2.UseVisualStyleBackColor = false;
@@ -197,11 +196,11 @@ namespace Comunicacionserial
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(542, 105);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button3.BackColor = System.Drawing.Color.Red;
+            this.button3.Location = new System.Drawing.Point(112, 404);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 22);
+            this.button3.Size = new System.Drawing.Size(98, 47);
             this.button3.TabIndex = 9;
             this.button3.Text = "Detener";
             this.button3.UseVisualStyleBackColor = false;
@@ -209,23 +208,23 @@ namespace Comunicacionserial
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(692, 105);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button4.Location = new System.Drawing.Point(230, 404);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 22);
+            this.button4.Size = new System.Drawing.Size(101, 47);
             this.button4.TabIndex = 10;
-            this.button4.Text = "Limpiar";
+            this.button4.Text = "Limpiar gráficos";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Red;
-            this.button5.Location = new System.Drawing.Point(144, 54);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button5.Location = new System.Drawing.Point(121, 131);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 22);
+            this.button5.Size = new System.Drawing.Size(79, 47);
             this.button5.TabIndex = 11;
             this.button5.Text = "Desconectar";
             this.button5.UseVisualStyleBackColor = false;
@@ -235,10 +234,10 @@ namespace Comunicacionserial
             // 
             this.button6.BackColor = System.Drawing.Color.Lime;
             this.button6.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button6.Location = new System.Drawing.Point(16, 54);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button6.Location = new System.Drawing.Point(21, 131);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(76, 22);
+            this.button6.Size = new System.Drawing.Size(73, 47);
             this.button6.TabIndex = 12;
             this.button6.Text = "Conectar";
             this.button6.UseVisualStyleBackColor = false;
@@ -247,10 +246,10 @@ namespace Comunicacionserial
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button7.Location = new System.Drawing.Point(274, 54);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button7.Location = new System.Drawing.Point(230, 131);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(101, 22);
+            this.button7.Size = new System.Drawing.Size(101, 47);
             this.button7.TabIndex = 13;
             this.button7.Text = "Actualizar puertos";
             this.button7.UseVisualStyleBackColor = false;
@@ -265,8 +264,8 @@ namespace Comunicacionserial
             this.chart2.ChartAreas.Add(chartArea8);
             legend8.Name = "Legend1";
             this.chart2.Legends.Add(legend8);
-            this.chart2.Location = new System.Drawing.Point(614, 131);
-            this.chart2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.chart2.Location = new System.Drawing.Point(403, 390);
+            this.chart2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chart2.Name = "chart2";
             series8.ChartArea = "ChartArea1";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -276,7 +275,7 @@ namespace Comunicacionserial
             series8.MarkerImageTransparentColor = System.Drawing.Color.Green;
             series8.Name = "Frecuencia";
             this.chart2.Series.Add(series8);
-            this.chart2.Size = new System.Drawing.Size(665, 320);
+            this.chart2.Size = new System.Drawing.Size(750, 282);
             this.chart2.TabIndex = 14;
             this.chart2.Text = "chart2";
             this.chart2.Click += new System.EventHandler(this.chart2_Click);
@@ -285,7 +284,7 @@ namespace Comunicacionserial
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(870, 474);
+            this.label6.Location = new System.Drawing.Point(481, 341);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(224, 33);
@@ -296,11 +295,11 @@ namespace Comunicacionserial
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(757, 468);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(774, 342);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 39);
+            this.label7.Size = new System.Drawing.Size(23, 31);
             this.label7.TabIndex = 16;
             this.label7.Text = "-";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -314,18 +313,19 @@ namespace Comunicacionserial
             this.comboBox2.Items.AddRange(new object[] {
             "Prueba TAP",
             "Prueba TEP"});
-            this.comboBox2.Location = new System.Drawing.Point(632, 19);
+            this.comboBox2.Location = new System.Drawing.Point(163, 298);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(120, 24);
             this.comboBox2.TabIndex = 19;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1289, 532);
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.ClientSize = new System.Drawing.Size(1183, 677);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -344,8 +344,8 @@ namespace Comunicacionserial
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "Prueba TAP Y TEP";
             this.Load += new System.EventHandler(this.Form1_Load);
