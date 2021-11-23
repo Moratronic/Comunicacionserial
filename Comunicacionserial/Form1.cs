@@ -22,16 +22,22 @@ namespace Comunicacionserial
         Boolean temblor=false;
 
         string portselec;
-        static int N= 32;//Tamaño de la muestra de 32
+        static int N= 128;//Tamaño de la muestra de 32
 
         static int Fs = 25; //Frecuencia de muestreo
         static int m = 25;    //Numero de muestras
+        static int fc = 7;    //Frecuencia de corte
+        static int mcut = 0;  //Bin de corte
         Complex[] x = new Complex[m];
         Complex[] x0 = new Complex[m + 1];
         Complex[] X = new Complex[N];
+        double[] Filtro = new double[N/2];
         //Señal de prueba nadamas
         static readonly double[] entrada = Generate.Sinusoidal(m, 25, 6, 2);
         double[] magX = new double[N /2];
+
+        double t = 0;
+        int g = 0;
 
         public Form1()
         {   
@@ -53,13 +59,18 @@ namespace Comunicacionserial
 
             chart2.ChartAreas[0].AxisY.Title = "dB";
             chart2.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 13.0f);
-            //Se rellenan ceros de x
-            for (int i = 0; i <m; i++)
+
+            mcut = fc * N / Fs;     //SE determina bin de corte
+            for (int n = 0; n < N/2; n++)//Asignacion de 1 a array de corte
             {
-                x[i] = 0;
+                Filtro [n]= 0;
+                if (n<= mcut)
+                {
+                    Filtro[n] = 1;
+                }
             }
             //Grafico la señal  que cree
-             for (int n = 0; n < m; n++)
+            for (int n = 0; n < m; n++)
              {
                  double tiempo = n *1.0/ Fs;
                  chart1.Series[0].Points.AddXY(tiempo, entrada[n]);
@@ -98,10 +109,11 @@ namespace Comunicacionserial
             {
                 //Se obtiene la magnitud de la Transformada de Fourier =abs[sqrt(r^2+i^2)]
                 magX [i]= Math.Abs(Math.Sqrt(Math.Pow(X[i].Real, 2) + Math.Pow(X[i].Imaginary, 2)));
+                magX[i] = magX[i] * Filtro[i]*1.0;
 
                 if (magX[i]==0)
                 {
-                    magX[0] = 0.001;  
+                    magX[i] = 0.001;  
                 }
                 double dB = 20*Math.Log10(magX[i]);
                 //Determinación de Hz 
@@ -177,6 +189,13 @@ namespace Comunicacionserial
                     t = 0;
                     i = true;
                 }
+                t = t + 0.04;
+                if (inicio == true && t >= 20.0)
+                {
+                    inicio = false;
+                    serialPort1.Write("S");
+                }
+
                 double tap = Math.Round(((numero * 4.0) / 65535), 2);
                 chart1.Series[0].Points.AddXY(t, tap);
                 label4.Text = tap.ToString();
@@ -191,12 +210,12 @@ namespace Comunicacionserial
                         x[i] = x0[i];
                     }
                 g ++;
-                if (temblor == true&& g>=1)
+                /*if (temblor == true&& g>=1)
                 {
                     g = 0;
                     PlotFFT();
                      
-                }
+                }*/
 
             }
         } 
@@ -207,22 +226,14 @@ namespace Comunicacionserial
 
         }
 
-        double t = 0;
-        int g = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            t = t+0.04;
-            /*if (inicio == true && temblor==true && g>=1)
+           // t = t+0.04;
+            if (inicio == true && temblor==true && g>=1)
             {
                PlotFFT();
                 g = 0;
-            }*/
-            if (inicio ==true && t>=20.0)
-            {
-                inicio = false;
-                serialPort1.Write("S");
             }
-
         }
 
         Boolean inicio= false;
