@@ -129,7 +129,7 @@ namespace Comunicacionserial
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(659, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -142,7 +142,7 @@ namespace Comunicacionserial
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(481, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -170,10 +170,9 @@ namespace Comunicacionserial
             // 
             // chart1
             // 
-            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chart1.BackSecondaryColor = System.Drawing.Color.Silver;
+            this.chart1.BackSecondaryColor = System.Drawing.Color.DarkGray;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -291,9 +290,8 @@ namespace Comunicacionserial
             // 
             // chart2
             // 
-            this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.chart2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            this.chart2.BackSecondaryColor = System.Drawing.Color.Silver;
+            this.chart2.BackSecondaryColor = System.Drawing.Color.DarkGray;
             chartArea2.BackColor = System.Drawing.Color.White;
             chartArea2.BackImageTransparentColor = System.Drawing.Color.White;
             chartArea2.BackSecondaryColor = System.Drawing.Color.White;
@@ -301,7 +299,7 @@ namespace Comunicacionserial
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(403, 390);
+            this.chart2.Location = new System.Drawing.Point(403, 383);
             this.chart2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
@@ -323,7 +321,7 @@ namespace Comunicacionserial
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(481, 341);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -336,7 +334,7 @@ namespace Comunicacionserial
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(712, 341);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -434,9 +432,9 @@ namespace Comunicacionserial
             this.pictureBox1.BackColor = System.Drawing.Color.SeaGreen;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(379, -4);
+            this.pictureBox1.Location = new System.Drawing.Point(552, 429);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(836, 722);
+            this.pictureBox1.Size = new System.Drawing.Size(331, 172);
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
