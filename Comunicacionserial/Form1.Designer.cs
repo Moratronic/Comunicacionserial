@@ -185,12 +185,14 @@ namespace Comunicacionserial
             series1.BorderColor = System.Drawing.Color.Red;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            series1.Color = System.Drawing.Color.Gray;
             series1.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             series1.Legend = "Legend1";
-            series1.MarkerBorderColor = System.Drawing.Color.Lime;
+            series1.MarkerBorderColor = System.Drawing.Color.Transparent;
+            series1.MarkerBorderWidth = 0;
             series1.MarkerColor = System.Drawing.Color.Lime;
             series1.MarkerImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series1.MarkerSize = 3;
             series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
             series1.Name = "Oscilacion";
             series1.YValuesPerPoint = 2;
@@ -205,6 +207,8 @@ namespace Comunicacionserial
             this.button2.BackColor = System.Drawing.Color.Lime;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(12, 331);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
