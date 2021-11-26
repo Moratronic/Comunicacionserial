@@ -195,6 +195,13 @@ namespace Comunicacionserial
                     inicio = false;
                     serialPort1.Write("S");
                 }
+                if (temblor == false )
+                {
+                    if (numero>-8000 &&numero<8000)
+                    {
+                        numero = 0;
+                    }
+                }
                 double tap = Math.Round(((numero * 4.0) / 65535), 2);
                 chart1.Series[0].Points.AddXY(t, tap);
                 label4.Text = tap.ToString();
