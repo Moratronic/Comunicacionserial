@@ -174,6 +174,7 @@ namespace Comunicacionserial
         }
 
         Boolean i = false;
+        int g = 0;
         public void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)//Recepcion de datos
         {
 
@@ -206,10 +207,10 @@ namespace Comunicacionserial
                     {
                         x[i] = x[i+1];
                     }
-                //g ++;
-                if (temblor == true)
+                g ++;
+                if (temblor == true&&g>=1)
                 {
-                    //  g = 0;
+                      g = 0;
                      PlotFFT();
                 }
 
