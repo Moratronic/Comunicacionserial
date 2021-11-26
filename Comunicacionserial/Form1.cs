@@ -297,11 +297,19 @@ namespace Comunicacionserial
             {
                 temblor = false;
                 label7.Text = ("-");
+                for (int i = 0; i <= m; i++) //Recorrimiento desde 0 hasta 24 tomando valor de 25
+                {
+                    x[i] =0;
+                }
             }
 
             if (comboBox2.Text == "Prueba TEP")
             {
                 temblor = true;
+                for (int i = 0; i <= m; i++) //Recorrimiento desde 0 hasta 24 tomando valor de 25
+                {
+                    x[i] = 0;
+                }
             }
         }
     }
