@@ -177,7 +177,7 @@ namespace Comunicacionserial
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(403, 56);
+            this.chart1.Location = new System.Drawing.Point(380, 56);
             this.chart1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
@@ -196,7 +196,7 @@ namespace Comunicacionserial
             series1.Name = "Oscilacion";
             series1.YValuesPerPoint = 2;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(776, 282);
+            this.chart1.Size = new System.Drawing.Size(799, 282);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -299,7 +299,7 @@ namespace Comunicacionserial
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(403, 383);
+            this.chart2.Location = new System.Drawing.Point(380, 383);
             this.chart2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
@@ -314,7 +314,7 @@ namespace Comunicacionserial
             series2.MarkerImageTransparentColor = System.Drawing.Color.Green;
             series2.Name = "Frecuencia";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(776, 282);
+            this.chart2.Size = new System.Drawing.Size(799, 282);
             this.chart2.TabIndex = 14;
             this.chart2.Click += new System.EventHandler(this.chart2_Click);
             // 

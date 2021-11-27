@@ -22,19 +22,19 @@ namespace Comunicacionserial
         Boolean temblor=false;
 
         string portselec;
-        static int N= 32;//Tamaño de la muestra de 32
+        static int N= 512;//Tamaño de la muestra a aplicar FFT
 
         static int Fs = 25; //Frecuencia de muestreo
         static int m = 16;    //Numero de muestras
         static int fc = 7;    //Frecuencia de corte
         static int mcut = 0;  //Bin de corte
-        Complex[] x = new Complex[m+1];     //cadena de datos leidos
+        Complex[] x = new Complex[Fs*timelect+1];     //cadena de datos leidos
         Complex[] x0 = new Complex[N-m];    //Cadena de ceros
         Complex[] X = new Complex[N];       //Cadena para aplicar FFT
         double[] Filtro = new double[N/2];  //Filtro FIR
         double[] magX = new double[N /2];
-        
-       //Señal de prueba nadamas
+        static int timelect = 10;
+        //Señal de prueba nadamas
         static readonly double[] entrada = Generate.Sinusoidal(5000, 25, 6, 2);
 
 
@@ -55,11 +55,16 @@ namespace Comunicacionserial
             chart1.ChartAreas[0].AxisY.Title = "Fuerza (G)";
             chart1.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 13.0f);
 
-            chart2.ChartAreas[0].AxisX.Title = "Frecuencia (Hz)";
-            chart2.ChartAreas[0].AxisX.TitleFont = new Font("Arial", 13.0f);
-
-            chart2.ChartAreas[0].AxisY.Title = "dB";
+            chart2.ChartAreas[0].AxisY.Title = "Frecuencia (Hz)";
             chart2.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 13.0f);
+
+            chart2.ChartAreas[0].AxisX.Title = "Tiempo";
+            chart2.ChartAreas[0].AxisX.TitleFont = new Font("Arial", 13.0f);
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisY.Interval = 0.5;
+            chart2.ChartAreas[0].AxisX.Interval = 1;
+            chart2.ChartAreas[0].AxisY.Interval = 0.5;
+
 
 
             mcut = fc * N / Fs;     //SE determina bin de corte
@@ -89,54 +94,69 @@ namespace Comunicacionserial
 
         public void PlotFFT()
         {
-            chart2.Series[0].Points.Clear();
-            //Se aplica Zero padding
-            x.CopyTo(X, 0);
-            x0.CopyTo(X, m);
-
-            //Se aplica ventana Hanning 
-            for (int i = 0; i < m; i++)
+            for (int counter = 0; counter <= (Fs * timelect); counter++)//Desde 0 a 250
             {
-                //Console.Write(X[i]);
-                X[i] = X[i] * (0.5 - (0.5 * Math.Cos((2 * Math.PI * i) / m - 1)));
-            }
-
-            //Forward Fourier convierte el tiempo en frecuencia
-            Fourier.Forward(X, FourierOptions.NoScaling); //No se se escalan los resultados
-            //Se toma solo unas muestra del arreglo ya transformado
-            for (int i = 0; i < (N / 2); i++)
-            {
-                //Se obtiene la magnitud de la Transformada de Fourier =abs[sqrt(r^2+i^2)] y se multiplica por el filtro
-                magX[i] = Math.Abs(Math.Sqrt(Math.Pow(X[i].Real, 2) + Math.Pow(X[i].Imaginary, 2)));
-                magX[i] = magX[i] * Filtro[i] * 1.0;
-
-                if (magX[i] == 0)
+                if (counter < m)//Si counter menor a 16
                 {
-                    magX[i] = 0.01;
+                    for (int i = 0; i <=counter; i++)
+                    {
+                        X[i] = x[i];
+                    }
+                    x0.CopyTo(X, counter + 1);
                 }
-                double dB = 20 * Math.Log10(magX[i]);//Revisar si no es *100
-                //Determinación de Hz 
-                double Hz = (i * Fs * 1.0 / N);
-                Hz = Math.Round(Hz, 2);
-                chart2.Series[0].Points.AddXY(Hz, dB); //Multiplicar i *fmuestreo
-            }
-            double valMax = magX.Max();
-            double binMax = 0;
-            for (int i = 1; i < (N / 2); i++)
-            {
-                if (valMax == magX[i])
+                else {//Si counter vale posicion 16
+                    for (int i = 0; i < m; i++)
+                    {
+                        X[i] = x[i +1+counter-m];
+                    }
+                }
+
+                //Se aplica Zero padding
+                x0.CopyTo(X, m);
+
+                //Se aplica ventana Hanning 
+                for (int i = 0; i < m; i++)
                 {
-                    binMax = i;
-                    i = N;
+                    //Console.Write(X[i]);
+                    X[i] = X[i] * (0.5 - (0.5 * Math.Cos((2 * Math.PI * i) / m - 1)));
                 }
+
+                //Forward Fourier convierte el tiempo en frecuencia
+                Fourier.Forward(X, FourierOptions.NoScaling); //No se se escalan los resultados
+                                                              //Se toma solo unas muestra del arreglo ya transformado
+                for (int i = 0; i < (N / 2); i++)
+                {
+                    //Se obtiene la magnitud de la Transformada de Fourier =abs[sqrt(r^2+i^2)] y se multiplica por el filtro
+                    magX[i] = Math.Abs(Math.Sqrt(Math.Pow(X[i].Real, 2) + Math.Pow(X[i].Imaginary, 2)));
+                    magX[i] = magX[i] * Filtro[i] * 1.0;
+
+                    if (magX[i] == 0)
+                    {
+                        magX[i] = 0.01;
+                    }
+                    double dB = 20 * Math.Log10(magX[i]);//Revisar si no es *100
+                                                         //Determinación de Hz 
+                    double Hz = (i * Fs * 1.0 / N);
+                    Hz = Math.Round(Hz, 2);
+                    //                chart2.Series[0].Points.AddXY(Hz, dB); //Multiplicar i *fmuestreo
+                }
+                double valMax = magX.Max();
+                double binMax = 0;
+                for (int i = 1; i < (N / 2); i++)
+                {
+                    if (valMax == magX[i])
+                    {
+                        binMax = i;
+                        i = N;
+                    }
+                }
+                double frecuencia = binMax * Fs / N;
+                frecuencia = Math.Round(frecuencia, 2);
+                chart2.Series[0].Points.AddXY(counter*0.04+0.04,frecuencia); //Multiplicar i *fmuestreo
+                                                              //Imprimimos la frecuencia
+                label7.Text = frecuencia.ToString();
+
             }
-            double frecuencia = binMax * Fs / N;
-            frecuencia = Math.Round(frecuencia, 2);
-            //Imprimimos la frecuencia
-            label7.Text = frecuencia.ToString();
-            Console.WriteLine(frecuencia);
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -173,7 +193,6 @@ namespace Comunicacionserial
 
         }
 
-        Boolean i = false;
         int g = 0;
         public void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)//Recepcion de datos
         {
@@ -183,17 +202,9 @@ namespace Comunicacionserial
                 double numero;
                 bool input = double.TryParse(serialPort1.ReadLine(), out numero);
                 if (!input)
-                 return;
-                if (i == false)
                 {
-                    t = 0;
-                    i = true;
-                }
-                t = t + 0.04;
-                if (inicio == true && t >= 20.0)
-                {
-                    inicio = false;
-                    serialPort1.Write("S");
+                    numero = 0;
+                    return;
                 }
                 if (temblor == false )
                 {
@@ -202,25 +213,26 @@ namespace Comunicacionserial
                         numero = 0;
                     }
                 }
+                t = t + 0.04;
                 double tap = Math.Round(((numero * 4.0) / 65535), 2);
                 chart1.Series[0].Points.AddXY(t, tap);
                 label4.Text = tap.ToString();
-
                 //Arreglo que guarda los datos
                 //Se rellena de los valores medidos
-
-                x[m] = tap;  //Se rellena la ultima posicion 
-                    for (int i = 0; i < m; i++) //Recorrimiento desde 0 hasta 24 tomando valor de 25
-                    {
-                        x[i] = x[i+1];
-                    }
-                g ++;
-                if (temblor == true&&g>=1)
+                x[g] = tap;
+//                Console.WriteLine(g);
+                g++;
+                if (t > timelect)
                 {
-                      g = 0;
-                     PlotFFT();
+                    inicio = false;
+                    serialPort1.Write("S");
+                    t = 0;
+                    g = 0;
+                    if (temblor == true)
+                    {
+                        PlotFFT();
+                    }
                 }
-
             }
         } 
         
@@ -237,6 +249,7 @@ namespace Comunicacionserial
             chart1.Series[0].Points.Clear();
             chart2.Series[0].Points.Clear();
             serialPort1.Write("R");
+            t = 0;
         }
 
         private void button3_Click(object sender, EventArgs e)//Boton para detener la recepción de datos
@@ -266,7 +279,6 @@ namespace Comunicacionserial
         {
             chart1.Series[0].Points.Clear();
             chart2.Series[0].Points.Clear();
-            i = false;
             inicio = false;
         }
 
@@ -305,7 +317,8 @@ namespace Comunicacionserial
             {
                 temblor = false;
                 label7.Text = ("-");
-                for (int i = 0; i <= m; i++) //Recorrimiento desde 0 hasta 24 tomando valor de 25
+                label6.Text = ("-");
+                for (int i = 0; i <= m; i++) //Se llena de ceros el arreglo
                 {
                     x[i] =0;
                 }
@@ -314,7 +327,7 @@ namespace Comunicacionserial
             if (comboBox2.Text == "Prueba TEP")
             {
                 temblor = true;
-                for (int i = 0; i <= m; i++) //Recorrimiento desde 0 hasta 24 tomando valor de 25
+                for (int i = 0; i <= m; i++) //Se llena de ceros el arreglo
                 {
                     x[i] = 0;
                 }
