@@ -23,6 +23,7 @@ namespace Comunicacionserial
 
         string portselec;
         static int N= 512;//Tamaño de la muestra a aplicar FFT
+        string tipoprueba;
 
         static int Fs = 25; //Frecuencia de muestreo
         static int m = 16;    //Numero de muestras
@@ -194,45 +195,40 @@ namespace Comunicacionserial
         }
 
         int g = 0;
+        double numero;
         public void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)//Recepcion de datos
         {
-
             if (inicio == true)
             {
-                double numero;
-                bool input = double.TryParse(serialPort1.ReadLine(), out numero);
-                if (!input)
-                {
-                    numero = 0;
-                    return;
-                }
-                if (temblor == false )
-                {
-                    if (numero>-8000 &&numero<8000)
+                    bool input = double.TryParse(serialPort1.ReadLine(), out numero);
+                    if (!input)
                     {
                         numero = 0;
                     }
-                }
-                t = t + 0.04;
-                double tap = Math.Round(((numero * 4.0) / 65535), 2);
-                chart1.Series[0].Points.AddXY(t, tap);
-                label4.Text = tap.ToString();
+                    t = t + 0.04;
+                    double tap = Math.Round(((numero * 4.0) / 65535), 2);
+                    chart1.Series[0].Points.AddXY(t, tap);
+                    label4.Text = tap.ToString();
+
                 //Arreglo que guarda los datos
                 //Se rellena de los valores medidos
-                x[g] = tap;
-//                Console.WriteLine(g);
-                g++;
-                if (t > timelect)
+                if (temblor == true)
                 {
-                    inicio = false;
-                    serialPort1.Write("S");
-                    t = 0;
-                    g = 0;
-                    if (temblor == true)
-                    {
-                        PlotFFT();
-                    }
+                    x[g] = tap;
                 }
+                g++;
+                //   Console.WriteLine(g);
+                if (t > timelect)
+                    {
+                        inicio = false;
+                        serialPort1.Write("S");
+                        t = 0;
+                        g = 0;
+                        if (temblor == true)
+                        {
+                            PlotFFT();
+                        }
+                    }
             }
         } 
         
@@ -248,7 +244,7 @@ namespace Comunicacionserial
             inicio = true;
             chart1.Series[0].Points.Clear();
             chart2.Series[0].Points.Clear();
-            serialPort1.Write("R");
+            serialPort1.Write(tipoprueba);
             t = 0;
         }
 
@@ -317,19 +313,16 @@ namespace Comunicacionserial
             {
                 temblor = false;
                 label7.Text = ("-");
-                label6.Text = ("-");
-                for (int i = 0; i <= m; i++) //Se llena de ceros el arreglo
-                {
-                    x[i] =0;
-                }
+                tipoprueba = "A";
             }
 
             if (comboBox2.Text == "Prueba TEP")
             {
                 temblor = true;
-                for (int i = 0; i <= m; i++) //Se llena de ceros el arreglo
+                for (int i = 0; i <=Fs*timelect; i++) //Se llena de ceros el arreglo
                 {
                     x[i] = 0;
+                    tipoprueba = "E";
                 }
             }
         }
