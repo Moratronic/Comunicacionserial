@@ -351,7 +351,7 @@ namespace Comunicacionserial
             this.comboBox2.ForeColor = System.Drawing.SystemColors.Menu;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Prueba TAP",
+            "Prueba Tapping",
             "Prueba TEP"});
             this.comboBox2.Location = new System.Drawing.Point(175, 259);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

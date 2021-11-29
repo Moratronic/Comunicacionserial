@@ -112,15 +112,15 @@ namespace Comunicacionserial
                     }
                 }
 
-                //Se aplica Zero padding
-                x0.CopyTo(X, m);
-
                 //Se aplica ventana Hanning 
                 for (int i = 0; i < m; i++)
                 {
                     //Console.Write(X[i]);
                     X[i] = X[i] * (0.5 - (0.5 * Math.Cos((2 * Math.PI * i) / m - 1)));
                 }
+
+                //Se aplica Zero padding
+                x0.CopyTo(X, m);
 
                 //Forward Fourier convierte el tiempo en frecuencia
                 Fourier.Forward(X, FourierOptions.NoScaling); //No se se escalan los resultados
@@ -309,7 +309,7 @@ namespace Comunicacionserial
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)//Seleccion de tipo de prueba
         {
-            if (comboBox2.Text == "Prueba TAP")
+            if (comboBox2.Text == "Prueba Tapping")
             {
                 temblor = false;
                 label7.Text = ("-");
