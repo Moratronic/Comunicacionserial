@@ -200,7 +200,8 @@ namespace Comunicacionserial
         {
             if (inicio == true)
             {
-                    bool input = double.TryParse(serialPort1.ReadLine(), out numero);
+                g++;
+                bool input = double.TryParse(serialPort1.ReadLine(), out numero);
                     if (!input)
                     {
                         numero = 0;
@@ -214,9 +215,8 @@ namespace Comunicacionserial
                 //Se rellena de los valores medidos
                 if (temblor == true)
                 {
-                    x[g] = tap;
+                    x[g-1] = tap;
                 }
-                g++;
                 //   Console.WriteLine(g);
                 if (t > timelect)
                     {
