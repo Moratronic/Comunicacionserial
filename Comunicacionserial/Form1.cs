@@ -247,6 +247,10 @@ namespace Comunicacionserial
             serialPort1.Write(tipoprueba);
             label7.Text = ("-");
             t = 0;
+            for (int i = 0; i <= Fs * timelect; i++) //Se llena de ceros el arreglo
+            {
+                x[i] = 0;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)//Boton para detener la recepción de datos
@@ -313,18 +317,13 @@ namespace Comunicacionserial
             if (comboBox2.Text == "Prueba Tapping")
             {
                 temblor = false;
-              //  label7.Text = ("-");
                 tipoprueba = "A";
             }
 
             if (comboBox2.Text == "Prueba TEP")
             {
                 temblor = true;
-                for (int i = 0; i <=Fs*timelect; i++) //Se llena de ceros el arreglo
-                {
-                    x[i] = 0;
-                    tipoprueba = "E";
-                }
+                tipoprueba = "E";
             }
         }
     }
