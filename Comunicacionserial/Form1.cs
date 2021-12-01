@@ -29,7 +29,7 @@ namespace Comunicacionserial
         static int m = 16;    //Numero de muestras
         static int fc = 7;    //Frecuencia de corte
         static int mcut = 0;  //Bin de corte
-        Complex[] x = new Complex[Fs*timelect+1];     //cadena de datos leidos
+        Complex[] x = new Complex[Fs*timelect+5];     //cadena de datos leidos
         Complex[] x0 = new Complex[N-m];    //Cadena de ceros
         Complex[] X = new Complex[N];       //Cadena para aplicar FFT
         double[] Filtro = new double[N/2];  //Filtro FIR
@@ -217,7 +217,7 @@ namespace Comunicacionserial
                 {
                     x[g-1] = tap;
                 }
-                //   Console.WriteLine(g);
+                   Console.WriteLine(g);
                 if (t > timelect)
                     {
                         inicio = false;
