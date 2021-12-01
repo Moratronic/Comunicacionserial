@@ -78,7 +78,7 @@ namespace Comunicacionserial
                 }
             }
 
-            //Grafico la señal  que cree
+           /* //Grafico la señal  que cree
             for (int n = 0; n < 200; n++)
              {
                  double tiempo = n *1.0/ Fs;
@@ -86,11 +86,11 @@ namespace Comunicacionserial
              }
              //Arreglo que guarda los datos
              //Se rellena de los valores medidos
-             for (int i = 0; i <m; i++)
+             for (int i = 0; i <251; i++)
              {
                  x[i] = new Complex(entrada[i], 0);
              }
-            PlotFFT();
+            PlotFFT();*/
         }
 
         public void PlotFFT()
@@ -245,6 +245,7 @@ namespace Comunicacionserial
             chart1.Series[0].Points.Clear();
             chart2.Series[0].Points.Clear();
             serialPort1.Write(tipoprueba);
+            label7.Text = ("-");
             t = 0;
         }
 
@@ -312,7 +313,7 @@ namespace Comunicacionserial
             if (comboBox2.Text == "Prueba Tapping")
             {
                 temblor = false;
-                label7.Text = ("-");
+              //  label7.Text = ("-");
                 tipoprueba = "A";
             }
 
